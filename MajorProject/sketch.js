@@ -1,54 +1,29 @@
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(800,800);
   noLoop();
-  noStroke(); // This will remove the stroke from all drawn shapes
+  noStroke();
+  fill(255, 229, 6);
 }
 
 function draw() {
   background(250);
-  fill(255, 225, 2);
 
-  let horizontalLines = [0, height];  // start with boundary lines
-  let verticalLines = [0, width];     // start with boundary lines
 
-  let minVHeight = 250;  // Minimum height for vertical rectangles
-  let minHWidth = 150;   // Minimum width for horizontal rectangles
-
-  // Draw vertical "line" rectangles with increased frequency
-  for (let i = 5; i < width; i += random(40, 60)) {
-    let startY = random(horizontalLines);
-    let endY = random(startY === 0 ? height : horizontalLines);
-    let thickness = random(12, 25);
-
-    if (startY > endY) {
-      [startY, endY] = [endY, startY];
-    }
-
-    // Ensure the rectangle height is above the minimum threshold
-    if (endY - startY > minVHeight) {
-      rect(i - thickness / 2, startY, thickness, endY - startY);
-      if (!horizontalLines.includes(endY)) {
-        horizontalLines.push(endY);
-      }
+  // Vertical rectangles
+  for (let i = 1; i < 10; i++) {
+    if (i == 2 || i == 4 || i == 7) {
+      rect(width/40 * i * 5, 0, width/50, height/2);
+    } else {
+      rect(width/50 * i * 5, 0, width/50, height);
     }
   }
 
-  // Draw horizontal "line" rectangles with increased frequency
-  for (let j = 5; j < height; j += random(40, 60)) {
-    let startX = random(verticalLines);
-    let endX = random(startX === 0 ? width : verticalLines);
-    let thickness = random(12, 15);
-
-    if (startX > endX) {
-      [startX, endX] = [endX, startX];
-    }
-
-    // Ensure the rectangle width is above the minimum threshold
-    if (endX - startX > minHWidth) {
-      rect(startX, j - thickness / 2, endX - startX, thickness);
-      if (!verticalLines.includes(endX)) {
-        verticalLines.push(endX);
-      }
+  // Horizontal rectangles
+  for (let j = 1; j < 8; j++) {
+    if (j == 1 || j == 5 || j == 6) {
+      rect(0, height/8 * j, width/2, height/40);
+    } else {
+      rect(0, height/8 * j, width, height/40);
     }
   }
 }
