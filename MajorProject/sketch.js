@@ -5,5 +5,5 @@ rect
 111
 
 function draw() {
-  background(200);
+  background(255, 255, 204);
 }
