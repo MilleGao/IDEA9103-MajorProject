@@ -81,6 +81,8 @@ for (let i = 1; i < 10; i++) {
     }
     fill(255, 229, 6);
   }
+
+  
   for (let i = 0; i < 8; i++) {
     noStroke();
     fill(colors[1]);//blue
