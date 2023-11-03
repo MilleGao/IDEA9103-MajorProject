@@ -16,7 +16,7 @@ function setup() {
   colors.push(blueColor);
   colors.push(redColor);
 
-  scaleX = windowWidth / 800; // 假设原始设计基于800x800的画布
+  scaleX = windowWidth / 800; 
   scaleY = windowHeight / 800;
 }
 
